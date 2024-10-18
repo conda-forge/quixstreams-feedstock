@@ -16,12 +16,12 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4
+    - python >=3.9,<4
     - setuptools
     - pip
   run:
-    - python >=3.8,<4
-    - python-confluent-kafka >=2.2,<2.6
+    - python >=3.9,<4
+    - python-confluent-kafka >=2.2,<2.5
     - requests >=2.32
     - rocksdict >=0.3,<0.4
     - typing_extensions >=4.8
