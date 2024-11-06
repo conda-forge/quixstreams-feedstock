@@ -1,5 +1,5 @@
 {% set name = "quixstreams" %}
-{% set version = "3.1.1" %}
+{% set version = "3.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/quixio/quix-streams/archive/v{{ version }}.tar.gz
-  sha256: 16a49ca309ea562fedc1136217cd83cfa4433612cac1826d816b3f38e98ef487
+  sha256: 6e93e5397a9b52e6050535ee54bf2348691173efedc56fb65e6dafd2f1997398
 
 build:
   noarch: python
