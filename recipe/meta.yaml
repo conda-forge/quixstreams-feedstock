@@ -1,5 +1,5 @@
 {% set name = "quixstreams" %}
-{% set version = "3.8.1" %}
+{% set version = "3.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/quixio/quix-streams/archive/v{{ version }}.tar.gz
-  sha256: 640c0a6f089e588b6fa04c311f3f417cc0c56f9d4a25b4a6f315bad29b0650ec
+  sha256: 7adfdd3b64bf9bb1d66527457afb6c5c7bbb7ba647e0a32f84d037449a745bbe
 
 build:
   noarch: python
@@ -26,10 +26,11 @@ requirements:
     - rocksdict >=0.3,<0.4
     - typing_extensions >=4.8
     - orjson >=3.9,<4
-    - pydantic >=2.7,<2.10
+    - pydantic >=2.7,<2.11
     - pydantic-settings >=2.3,<2.7
     - jsonschema >=4.3.0
     - jsonlines >=4,<5
+    - rich >=13,<14
 
 test:
   imports:
