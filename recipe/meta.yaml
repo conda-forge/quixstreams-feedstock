@@ -21,7 +21,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - python-confluent-kafka >=2.4,<2.5
+    - python-confluent-kafka >=2.8.2,<2.9
     - requests >=2.32
     - rocksdict >=0.3,<0.4
     - typing_extensions >=4.8
@@ -31,6 +31,16 @@ requirements:
     - jsonschema >=4.3.0
     - jsonlines >=4,<5
     - rich >=13,<14
+    # for confluent-kafka[avro,json,protobuf,schemaregistry]
+    - fastavro <2
+    - avro >=1.11.1,<2
+    - pyrsistent
+    - googleapis-common-protos
+    - protobuf
+    - attrs
+    - cachetools
+    - httpx >=0.26
+    - authlib
 
 test:
   imports:
