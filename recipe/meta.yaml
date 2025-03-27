@@ -1,5 +1,5 @@
 {% set name = "quixstreams" %}
-{% set version = "3.11.0" %}
+{% set version = "3.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/quixio/quix-streams/archive/v{{ version }}.tar.gz
-  sha256: dc8803fe2e96de20542b3daed7f6739d63c8c63362bfc5ef21685c2929af5b76
+  sha256: 265da11c825bee1d014c3231c446a23f7db238a33a2a8d80b806eeeeab50d93a
 
 build:
   noarch: python
@@ -21,7 +21,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - python-confluent-kafka >=2.4,<2.5
+    - python-confluent-kafka >=2.8.2,<2.9
     - requests >=2.32
     - rocksdict >=0.3,<0.4
     - typing_extensions >=4.8
@@ -31,6 +31,16 @@ requirements:
     - jsonschema >=4.3.0
     - jsonlines >=4,<5
     - rich >=13,<14
+    # for confluent-kafka[avro,json,protobuf,schemaregistry]
+    - fastavro <2
+    - avro >=1.11.1,<2
+    - pyrsistent
+    - googleapis-common-protos
+    - protobuf
+    - attrs
+    - cachetools
+    - httpx >=0.26
+    - authlib
 
 test:
   imports:
