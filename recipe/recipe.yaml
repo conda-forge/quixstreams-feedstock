@@ -1,26 +1,29 @@
-{% set name = "quixstreams" %}
-{% set version = "3.26.0" %}
+schema_version: 1
+
+context:
+  name: quixstreams
+  version: "3.26.0"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/quixio/quix-streams/archive/v{{ version }}.tar.gz
+  url: https://github.com/quixio/quix-streams/archive/v${{ version }}.tar.gz
   sha256: be7890366997e26cd06be9bbdd16f75c779f6617691c5ded2e28555be9c236ee
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - setuptools
     - pip
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - python-confluent-kafka >=2.8.2,<2.12
     - rocksdict >=0.3,<0.4
     - typing_extensions >=4.8
@@ -49,22 +52,22 @@ requirements:
     - httpx2 >=2.0
     - authlib >=1.8.0
 
-test:
-  imports:
-    - quixstreams
-  commands:
-    - pip check
-  requires:
-    - pip
-    - python {{ python_min }}
+tests:
+  - python:
+      imports:
+        - quixstreams
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
-  home: https://github.com/quixio/quix-streams
-  doc_url: https://docs.quix.io/
   summary: Python library for building stream processing applications with Apache Kafka
   license: Apache-2.0
   license_file:
     - LICENSE
+  homepage: https://github.com/quixio/quix-streams
+  documentation: https://docs.quix.io/
 
 extra:
   recipe-maintainers:
