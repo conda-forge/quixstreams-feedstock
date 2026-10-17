@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: quixstreams
-  version: "3.28.0"
+  version: "3.28.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/quixio/quix-streams/archive/v${{ version }}.tar.gz
-  sha256: 19785e2f2e89cac3ba408e35c449dd86e066a0f1418231b636148d2e50ca6ef0
+  sha256: c0053efd15b0c8e2d21635120fd0f83b185f93785810fc95d8032c70d57897e4
 
 build:
   number: 0
